@@ -1,0 +1,20 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+
+
+mp_qty_global   {type volFieldValue; libs (fieldFunctionObjects); fields (mp); operation volIntegrate; regionType all; writeFields false;}
+mp_qty_hz   {type volFieldValue; libs (fieldFunctionObjects); fields (mp); operation volIntegrate; regionType cellZone; name hz; writeFields false;}
+
+
+
+
+
+
+
+// ************************************************************************* //

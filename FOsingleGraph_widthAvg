@@ -1,0 +1,61 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2112                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+
+
+linesSampleWidth
+    {
+        xPos 3.77;
+        startY 0;
+        startZ 0.018;
+        increment 0.1;
+        fields  (mp);
+        setFormat (csv);
+        writeControl    adjustableRunTime;
+        writeInterval   1;
+
+        interpolationScheme cellPoint;
+
+        setFormat   raw;
+
+        setConfig
+        {
+            type    uniform;   // midPoint, midPointAndFace
+            axis    y;  // x, y, z, xyz
+            nPoints 10;
+        }
+
+        // Must be last entry
+        type            sets;
+        libs            ("libsampling.so");
+
+        // now multi sets for width averaging.
+        // compact code, as it was generated in Excel (concat of different strings -> faster than
+        // fiddling around with #eval-Statements and variables here in the dict)
+
+        sets
+        ( 
+            line001{$setConfig; start (3.77 0 0.018); end (3.77 0.086 0.018);}
+            line002{$setConfig; start (3.77 0 0.028); end (3.77 0.086 0.028);}
+            line003{$setConfig; start (3.77 0 0.038); end (3.77 0.086 0.038);}
+            line004{$setConfig; start (3.77 0 0.048); end (3.77 0.086 0.048);}
+            line005{$setConfig; start (3.77 0 0.058); end (3.77 0.086 0.058);}
+            line006{$setConfig; start (3.77 0 0.068); end (3.77 0.086 0.068);}
+            line007{$setConfig; start (3.77 0 0.078); end (3.77 0.086 0.078);}
+            line008{$setConfig; start (3.77 0 0.088); end (3.77 0.086 0.088);}
+            line009{$setConfig; start (3.77 0 0.098); end (3.77 0.086 0.098);}
+            line010{$setConfig; start (3.77 0 0.108); end (3.77 0.086 0.108);}
+            line011{$setConfig; start (3.77 0 0.118); end (3.77 0.086 0.118);}
+            line012{$setConfig; start (3.77 0 0.128); end (3.77 0.086 0.128);}
+            line013{$setConfig; start (3.77 0 0.138); end (3.77 0.086 0.138);}
+            line014{$setConfig; start (3.77 0 0.148); end (3.77 0.086 0.148);}
+
+        );
+    }
+
+// ************************************************************************* //

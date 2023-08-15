@@ -1,0 +1,122 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2106                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+
+lineSampleWallLeft
+    {
+        start   (3.77 0.085 0.018);
+        end     (3.77 0.085 0.158);
+        fields  (mp);
+        setFormat (csv);
+        writeControl    adjustableRunTime;
+        writeInterval   1;
+
+        interpolationScheme cellPoint;
+
+        setFormat   raw;
+
+        setConfig
+        {
+            type    uniform;   // midPoint, midPointAndFace
+            axis    z;  // x, y, z, xyz
+            nPoints 15;
+        }
+
+        // Must be last entry
+        type            sets;
+        libs            ("libsampling.so");
+
+
+        sets
+        (
+            line
+            {
+                $setConfig;
+                start $start;
+                end   $end;
+            }
+        );
+    }
+
+
+
+lineSampleWallRight
+    {
+        start   (3.77 0.001 0.018);
+        end     (3.77 0.001 0.158);
+        fields  (mp);
+        setFormat (csv);
+        writeControl    adjustableRunTime;
+        writeInterval   1;
+
+        interpolationScheme cellPoint;
+
+        setFormat   raw;
+
+        setConfig
+        {
+            type    uniform;   // midPoint, midPointAndFace
+            axis    z;  // x, y, z, xyz
+            nPoints 15;
+        }
+
+        // Must be last entry
+        type            sets;
+        libs            ("libsampling.so");
+
+
+        sets
+        (
+            line
+            {
+                $setConfig;
+                start $start;
+                end   $end;
+            }
+        );
+    }
+
+lineSampleCenter
+    {
+        start   (3.77 0.043 0.018);
+        end     (3.77 0.043 0.158);
+        fields  (mp);
+        setFormat (csv);
+        writeControl    adjustableRunTime;
+        writeInterval   1;
+
+        interpolationScheme cellPoint;
+
+        setFormat   raw;
+
+        setConfig
+        {
+            type    uniform;   // midPoint, midPointAndFace
+            axis    z;  // x, y, z, xyz
+            nPoints 15;
+        }
+
+        // Must be last entry
+        type            sets;
+        libs            ("libsampling.so");
+
+
+        sets
+        (
+            line
+            {
+                $setConfig;
+                start $start;
+                end   $end;
+            }
+        );
+    }
+
+
+
+// ************************************************************************* //
